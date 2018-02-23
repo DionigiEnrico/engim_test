@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="variabili_costanti.js"></script>
+    <style>
+    .container{margin-top: 10px;}
+    .btn-cerca{background-color: red;color: white;}
+    body {font-size:15px;background-color:#b0c4de;color: white;height: 100vh;font-family: 'Arial', sans-serif;}
+    p {  margin-top: 2vh; color:black;}
+    input {font-size: 15px;margin-top: 25vh;width: inherit;max-width: 80%;}
+    span {color:red;font-weight: bold;font-size:18px;}
+    h1{color:black;}
+    </style>
+    <title>
+     Esame JavaScript - Dionigi Enrico
+    </title>
+  </head>
+  <body>
+<div class="container">
+    <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <form method="post">
+      <input type="text" name="search" placeholder="Search.." id="trova_stringa">
+      <button type="button" class="btn btn-cerca" id="cerca">Cerca</button>
+    </form>
+      <h1>Angular</h1>
+<p id="testo">Angular è stato completamente riscritto rispetto a AngularJS e le due versioni non sono compatibili.
+Il linguaggio di programmazione usato per AngularJS è JavaScript mentre quello di Angular è TypeScript.
+Le applicazioni sviluppate in Angular vengono eseguite interamente dal web browser dopo essere state scaricate dal web server.
+Questo comporta il risparmio di dover spedire indietro la pagina web al web-server ogni volta che c'è una richiesta di azione da parte dell'utente.
+Il codice generato da Angular gira su tutti i principali web browser moderni quali ad esempio Chrome, Internet Explorer, Opera, Firefox, Safari ed altri.
+Angular è stato progettato per fornire un strumento facile e veloce per sviluppare applicazioni che girano su qualunque piattaforma inclusi smartphone e tablet.
+Infatti le applicazioni web in Angular in combinazione con il toolkit open source Bootstrap diventano responsive, ossia il design del sito web si adatta in funzione alle dimensioni del dispositivo utilizzato.
+È in corso di sviluppo un altro toolkit di design responsivo, Flex Layout, più semplice da usare rispetto a Bootstrap e concepito appositamente per Angular.
+Altro toolkit che facilita la progettazione in Angular è Angular Material, una serie di componenti che permette di creare una pagina web molto velocemente:
+con l'utilizzo combinato di Flex Layout ed Angular Material si possono creare siti e applicazioni web responsive molto avanzate basate su Angular.</p>
+
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+    <script>
+    var sorgente = $("#testo").text();
+      var cerca;
+
+      $("#trova_stringa").keyup(function() {   // keyup: evento che verifica il tasto premuto e poi rilasciato da tastiera.
+        $("#testo").text(sorgente);
+      cerca = $("#trova_stringa").val(); // variabile per ricevere la stringa da cercare.
+        $("#testo").html((_, html) => {
+         return html.split(cerca).join("<span>" + cerca + "</span>");
+        });
+      })
+    </script>
+  </body>
+</html>
